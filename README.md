@@ -7,7 +7,7 @@ This is a Lex file (.lex) for analyzing an EASY programming language source code
 ### Usage (*Windows WSL*)
 1. ```$ flex EASY_analyzer.lex```
 2. ```$ gcc lex.yy.c -lfl -o <EXECUTABLE_NAME>```
-3. ```$ ./<EXECUTABLE_NAME> <PATH_TO_FILE>`
+3. ```$ ./<EXECUTABLE_NAME> <PATH_TO_FILE>```
 
 After running, there should be a list of Token and Lexeme pairs in <*Token*,*Lexeme*> formating in the terminal log.
 
