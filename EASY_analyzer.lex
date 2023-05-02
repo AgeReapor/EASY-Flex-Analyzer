@@ -1,21 +1,14 @@
-/*
-flex EASY_analyzer.lex     
-gcc lex.yy.c -lfl
-./a.out test/bin_search.easy
-*/
-
 %option noyywrap
 
 %{
 #include <stdio.h>
 #include <stdlib.h>
-#include <stdbool.h>
 %}
 
 STRING              '[^']*'
 COMMENT             \/\/.*$
 WHITESPACE          [ \t\f]*
-NEWLINES            [\n\r\t\f]
+NEWLINE            [\n\r\t\f]
 MATH_NOTATION       [⌊⌋⌈⌉]|mod|log_([0-9]+([.][0-9]*)?|[.][0-9]+)
 NUMBER              -?([0-9]+([.][0-9]*)?|[.][0-9]+)
 ARITHMETIC_OP       [+\-\/\*^]
@@ -36,21 +29,21 @@ IDENTIFIER          [_a-zA-Z][_a-zA-Z0-9]*
 {STRING}            printf("<%s,%s>\n", "String", yytext);
 {COMMENT}           // ignore comments
 {WHITESPACE}        // ignore whitespace except newline
-{NEWLINES}          printf("<%s, '%s'>\n", "Newline", "\\n");
-{MATH_NOTATION}     printf("<%s, '%s'>\n", "Mathematical Notation", yytext);
+{NEWLINE}           printf("<%s, '%s'>\n", "Newline", "\\n");
+{MATH_NOTATION}     printf("<%s, '%s'>\n", "Math_Notation", yytext);
 {NUMBER}            printf("<%s, %s>\n", "Number", yytext);
-{ARITHMETIC_OP}     printf("<%s, '%s'>\n", "Arithmetic Operator", yytext);
-{LOGICAL_OP}        printf("<%s, '%s'>\n", "Logical Operator", yytext);
-{RELATIONAL_OP}     printf("<%s, '%s'>\n", "Relational Operator", yytext);
+{ARITHMETIC_OP}     printf("<%s, '%s'>\n", "Arithmetic_Op", yytext);
+{LOGICAL_OP}        printf("<%s, '%s'>\n", "Logical_Op", yytext);
+{RELATIONAL_OP}     printf("<%s, '%s'>\n", "Relational_Op", yytext);
 {ASSIGNMENT}        printf("<%s, '%s'>\n", "Assignment", "=");
 {KEYWORD}           printf("<%s, %s>\n", "Keyword", yytext);
-{OPEN_SQR_BRACKET}  printf("<%s, '%s'>\n", "Open Square Bracket", "[");
-{CLOSE_SQR_BRACKET} printf("<%s, '%s'>\n", "Close Square Bracket", "]");
+{OPEN_SQR_BRACKET}  printf("<%s, '%s'>\n", "Open_Sqr_Bracket", "[");
+{CLOSE_SQR_BRACKET} printf("<%s, '%s'>\n", "Close_Sqr_Bracket", "]");
 {COLON}             printf("<%s, '%s'>\n", "Colon", ":");
 {BOOLEAN}           printf("<%s, %s>\n", "Boolean", yytext);
 {COMMA}             printf("<%s, '%s'>\n", "Comma", ",");
-{OPEN_PAREN}        printf("<%s, '%s'>\n", "Open Parenthesis", "(");
-{CLOSE_PAREN}       printf("<%s, '%s'>\n", "Close Parenthesis", ")");
+{OPEN_PAREN}        printf("<%s, '%s'>\n", "Open_Paren", "(");
+{CLOSE_PAREN}       printf("<%s, '%s'>\n", "Close_Paren", ")");
 {IDENTIFIER}        printf("<%s, %s>\n", "Identifier", yytext);
                 
 %%
