@@ -8,7 +8,7 @@
 STRING              '[^']*'
 COMMENT             \/\/.*$
 WHITESPACE          [ \t\f]*
-NEWLINE            [\n\r\t\f]
+NEWLINE             [\n\r\t\f]*
 MATH_NOTATION       [⌊⌋⌈⌉]|mod|log_([0-9]+([.][0-9]*)?|[.][0-9]+)
 NUMBER              -?([0-9]+([.][0-9]*)?|[.][0-9]+)
 ARITHMETIC_OP       [+\-\/\*^]
