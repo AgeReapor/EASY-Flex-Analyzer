@@ -20,4 +20,4 @@ $ ./EASY_analyzer test_files/reserved_test.easy
 ```
 ---
 
-For list of tokens, see [Regex Table Documentation](Regex Table Documentation.pdf)
+For list of tokens, see [Regex Table Documentation](Regex_Table_Documentation.pdf)
